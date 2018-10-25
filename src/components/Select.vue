@@ -350,6 +350,7 @@
                 :tabindex="tabindex"
                 :readonly="!searchable"
                 :id="inputId"
+                :maxlength="maxlength"
                 role="combobox"
                 :aria-expanded="dropdownOpen"
                 aria-label="Search for option"
@@ -597,6 +598,18 @@
       taggable: {
         type: Boolean,
         default: false
+      },
+
+
+      /**
+       * Sets the maximum length of the search input,
+       * which affects the maximum length tag that can
+       * be created when tagging is enabled.
+       * @type {Number}
+       */
+      maxlength: {
+        type: Number,
+        default: undefined
       },
 
       /**
