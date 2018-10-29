@@ -976,7 +976,8 @@
        * @emits  {search:blur}
        * @return {void}
        */
-      onSearchBlur() {
+      onSearchBlur(event) {
+          console.log('onSearchBlur:' + this.mousedown + ',' + this.searching + ',' + this.search + ',' + event)
         if (this.mousedown && !this.searching) {
           this.mousedown = false
         } else {
