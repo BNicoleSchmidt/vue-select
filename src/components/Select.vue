@@ -878,13 +878,14 @@
        */
       onAfterSelect(option) {
           console.warn('onAfterSelect:' + JSON.stringify(option))
+
+        if (this.clearSearchOnSelect) {
+            this.search = ''
+        }
+
         if (this.closeOnSelect) {
           this.open = !this.open
           this.$refs.search.blur()
-        }
-
-        if (this.clearSearchOnSelect) {
-          this.search = ''
         }
       },
 
