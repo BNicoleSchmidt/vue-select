@@ -982,7 +982,9 @@
         if (this.mousedown && !this.searching) {
           this.mousedown = false
         } else {
-          this.select(this.search)
+          if (!!this.search) {
+              this.select(this.search)
+          }
           if (this.clearSearchOnBlur) {
             this.search = ''
           }
