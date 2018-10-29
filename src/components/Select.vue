@@ -877,7 +877,7 @@
        * @return {void}
        */
       onAfterSelect(option) {
-          console.warn('onAfterSelect:' + option)
+          console.warn('onAfterSelect:' + JSON.stringify(option))
         if (this.closeOnSelect) {
           this.open = !this.open
           this.$refs.search.blur()
@@ -978,9 +978,10 @@
        * @return {void}
        */
       onSearchBlur(event) {
-        console.warn('onSearchBlur:' + this.mousedown + ',' + this.searching + ',' + this.search + ',' + event)
+        console.warn('onSearchBlur:' + this.mousedown + ',' + this.searching + ',' + this.search + ',' + JSON.stringify(event))
         if (this.mousedown && !this.searching) {
           this.mousedown = false
+          this.select(this.search)
         } else {
           if (this.clearSearchOnBlur) {
             this.search = ''
