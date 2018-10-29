@@ -877,8 +877,6 @@
        * @return {void}
        */
       onAfterSelect(option) {
-          console.warn('onAfterSelect:' + JSON.stringify(option))
-
         if (this.clearSearchOnSelect) {
             this.search = ''
         }
@@ -978,8 +976,7 @@
        * @emits  {search:blur}
        * @return {void}
        */
-      onSearchBlur(event) {
-        console.warn('onSearchBlur:' + this.mousedown + ',' + this.searching + ',' + this.search + ',' + JSON.stringify(event))
+      onSearchBlur() {
         if (this.mousedown && !this.searching) {
           this.mousedown = false
         } else {
