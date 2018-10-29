@@ -890,6 +890,7 @@
        * @return {void}
        */
       onAfterSelect(option) {
+          console.warn('onAfterSelect:' + option)
         if (this.closeOnSelect) {
           this.open = !this.open
           this.$refs.search.blur()
@@ -990,7 +991,7 @@
        * @return {void}
        */
       onSearchBlur(event) {
-          console.log('onSearchBlur:' + this.mousedown + ',' + this.searching + ',' + this.search + ',' + event)
+        console.warn('onSearchBlur:' + this.mousedown + ',' + this.searching + ',' + this.search + ',' + event)
         if (this.mousedown && !this.searching) {
           this.mousedown = false
         } else {
