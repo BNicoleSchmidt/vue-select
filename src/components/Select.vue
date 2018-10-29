@@ -994,8 +994,10 @@
         console.warn('onSearchBlur:' + this.mousedown + ',' + this.searching + ',' + this.search + ',' + JSON.stringify(event))
         if (this.mousedown && !this.searching) {
           this.mousedown = false
-          this.select(this.search)
         } else {
+          if (!!this.search) {
+              this.select(this.search)
+          }
           if (this.clearSearchOnBlur) {
             this.search = ''
           }
