@@ -977,18 +977,14 @@
        * @return {void}
        */
       onSearchBlur() {
-        if (this.mousedown && !this.searching) {
-          this.mousedown = false
-        } else {
           if (!!this.search) {
-              this.select(this.search)
+            this.$emit('search:preblur')
           }
           if (this.clearSearchOnBlur) {
             this.search = ''
           }
           this.open = false
           this.$emit('search:blur')
-        }
       },
 
       /**
