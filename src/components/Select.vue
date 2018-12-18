@@ -378,7 +378,7 @@
           </slot>
           </a>
         </li>
-        <li v-if="!filteredOptions.length" class="no-options">
+        <li v-if="!filteredOptions.length" class="no-options" @mousedown.stop="">
           <slot name="no-options">Sorry, no matching options.</slot>
         </li>
       </ul>
@@ -882,13 +882,13 @@
        * @return {void}
        */
       onAfterSelect(option) {
+        if (this.clearSearchOnSelect) {
+            this.search = ''
+        }
+
         if (this.closeOnSelect) {
           this.open = !this.open
           this.$refs.search.blur()
-        }
-
-        if (this.clearSearchOnSelect) {
-          this.search = ''
         }
       },
 
@@ -982,15 +982,14 @@
        * @return {void}
        */
       onSearchBlur() {
-        if (this.mousedown && !this.searching) {
-          this.mousedown = false
-        } else {
+          if (!!this.search) {
+            this.$emit('search:preblur')
+          }
           if (this.clearSearchOnBlur) {
             this.search = ''
           }
           this.open = false
           this.$emit('search:blur')
-        }
       },
 
       /**
