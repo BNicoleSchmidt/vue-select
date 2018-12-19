@@ -665,8 +665,8 @@
        * @type {Boolean}
        */
       selectOnBlur: {
-	type: Boolean,
-	default: true,
+        type: Boolean,
+        default: true,
       },
 
       /**
@@ -900,7 +900,6 @@
        * @return {void}
        */
       onAfterSelect(option) {
-          console.warn('onAfterSelect:' + JSON.stringify(option))
         if (this.closeOnSelect) {
           this.open = !this.open
           this.$refs.search.blur()
@@ -1001,7 +1000,6 @@
        * @return {void}
        */
       onSearchBlur(event) {
-        console.warn('onSearchBlur:' + this.mousedown + ',' + this.searching + ',' + this.search + ',' + JSON.stringify(event))
         if (this.mousedown && !this.searching) {
           this.mousedown = false
         } else {
