@@ -660,6 +660,16 @@
       },
 
       /**
+       * Property to indicate the control should select the current
+       * search text when the control loses focus.
+       * @type {Boolean}
+       */
+      selectOnBlur: {
+	type: Boolean,
+	default: true,
+      },
+
+      /**
        * Callback to filter results when search text
        * is provided. Default implementation loops
        * each option, and returns the result of
@@ -995,7 +1005,7 @@
         if (this.mousedown && !this.searching) {
           this.mousedown = false
         } else {
-          if (!!this.search) {
+          if (!!this.search && this.selectOnBlur) {
               this.select(this.search)
           }
           if (this.clearSearchOnBlur) {
